@@ -1,0 +1,1411 @@
+/* ==========================================================================
+   Acharya's International Alternative Therapy Centre — Stylesheet (style.css)
+   Custom-designed header matching reference layout + modern healthcare theme
+   ========================================================================== */
+
+:root {
+  --brand-maroon: #4e1d1a;
+  --brand-maroon-dark: #361210;
+  --brand-maroon-light: #6d2b27;
+  --brand-maroon-tint: #f9f1f0;
+
+  --accent-teal: #2b7a78;
+  --accent-teal-dark: #1f5c5a;
+  --accent-teal-soft: #eaf4f4;
+  --accent-sage: #3b7a57;
+  --accent-sage-soft: #edf6f0;
+  --google-blue: #1a73e8;
+  --google-blue-dark: #1557b0;
+
+  --bg-page: #f7f5f0;
+  --bg-section-alt: #efeae2;
+  --bg-card: #ffffff;
+  --bg-subtle: #faf8f5;
+
+  --text-primary: #1c201d;
+  --text-secondary: #4a524d;
+  --text-muted: #68706b;
+  --text-on-dark: #ffffff;
+
+  --border-warm: #e2dbd0;
+  --border-strong: #cfc4b4;
+  --shadow-sm: 0 2px 8px rgba(56, 19, 17, 0.06);
+  --shadow-md: 0 10px 28px rgba(56, 19, 17, 0.08);
+  --shadow-lg: 0 16px 36px rgba(56, 19, 17, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+
+  --container-max: 1140px;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-teal);
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--brand-maroon);
+  color: var(--text-on-dark);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* ==========================================================================
+   1. Top Contact Strip (Above the Header)
+   ========================================================================== */
+.contact-strip {
+  background: linear-gradient(90deg, var(--brand-maroon-dark) 0%, var(--brand-maroon) 50%, var(--brand-maroon-dark) 100%);
+  color: var(--text-on-dark);
+  padding: 0.55rem 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.16);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contact-strip__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.contact-strip__primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.contact-strip__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #ffd166;
+}
+
+.contact-strip__link {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.contact-strip__link:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+.contact-strip__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.22rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.status-pill__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+}
+
+/* ==========================================================================
+   2. Custom-Designed Clinic Header (Recreated from Reference Style, No Nav Bar)
+   ========================================================================== */
+.site-header {
+  background: linear-gradient(180deg, #f3f0e8 0%, #e7e2d8 100%);
+  border-bottom: 4px solid var(--brand-maroon);
+  box-shadow: var(--shadow-md);
+  padding: 1.25rem 0 1.4rem;
+}
+
+.clinic-header-board {
+  background: linear-gradient(135deg, #fbfaf7 0%, #efece4 100%);
+  border: 2px solid #d2c8b8;
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.65rem 1.3rem;
+  box-shadow: 0 8px 24px rgba(56, 19, 17, 0.09), inset 0 1px 0 #ffffff;
+}
+
+/* Top GSTIN line above emblem as in reference */
+.clinic-header-board__gst-row {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #1c201d;
+  margin-bottom: 0.3rem;
+}
+
+/* Main 2-column header grid: Emblem Logo on Left + Typography Block on Right */
+.clinic-header-board__main {
+  display: grid;
+  grid-template-columns: 164px 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Circular Acharya Emblem with Dr. Shashikanth Sharma's Photo as Logo */
+.acharya-logo-emblem {
+  position: relative;
+  width: 156px;
+  height: 156px;
+  margin: 0 auto;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(78, 29, 26, 0.26);
+  background: #5b231f;
+}
+
+.acharya-logo-emblem__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.acharya-logo-emblem__photo-wrap {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid #e6d5b8;
+  background: radial-gradient(circle at 50% 35%, #ffffff 0%, #d9edf2 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.acharya-logo-emblem__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
+}
+
+/* Right Content Column inside Header */
+.clinic-header-board__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.clinic-header-board__meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  color: #1c201d;
+}
+
+.clinic-header-board__tan {
+  font-size: clamp(1.02rem, 1.8vw, 1.28rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.clinic-header-board__cell {
+  font-size: clamp(1.08rem, 2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #1c201d;
+}
+
+.clinic-header-board__cell a {
+  color: var(--brand-maroon);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(78, 29, 26, 0.35);
+}
+
+.clinic-header-board__cell a:hover {
+  color: var(--accent-teal-dark);
+  border-bottom-color: var(--accent-teal-dark);
+}
+
+/* Main Condensed Maroon Clinic Name */
+.clinic-header-board__title {
+  font-family: 'Oswald', 'Impact', 'Arial Narrow', sans-serif;
+  font-size: clamp(1.6rem, 3.6vw, 2.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-maroon);
+  line-height: 1.08;
+  letter-spacing: 0.015em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+  margin: 0.15rem 0 0.25rem;
+}
+
+/* Bottom Address Line in Header */
+.clinic-header-board__address {
+  font-family: 'Oswald', 'Inter', sans-serif;
+  font-size: clamp(0.96rem, 1.75vw, 1.25rem);
+  font-weight: 600;
+  color: #1c201d;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  border-top: 1.5px solid rgba(78, 29, 26, 0.18);
+  padding-top: 0.45rem;
+}
+
+/* ==========================================================================
+   3. Brief Clinic Introduction Banner
+   ========================================================================== */
+.intro-section {
+  padding: 1.85rem 0 1.15rem;
+}
+
+.intro-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f6fbfb 60%, #f9f2f0 100%);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  padding: 1.65rem 2rem;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.intro-card__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-teal-dark);
+  background-color: var(--accent-teal-soft);
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.65rem;
+}
+
+.intro-card__title {
+  font-size: clamp(1.3rem, 2.3vw, 1.7rem);
+  line-height: 1.25;
+  color: var(--brand-maroon);
+  font-weight: 800;
+  margin-bottom: 0.55rem;
+}
+
+.intro-card__desc {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  margin-bottom: 1.1rem;
+}
+
+.intro-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  min-height: 44px;
+}
+
+.btn--primary {
+  background-color: var(--brand-maroon);
+  color: var(--text-on-dark);
+  box-shadow: 0 4px 12px rgba(78, 29, 26, 0.22);
+}
+
+.btn--primary:hover {
+  background-color: var(--brand-maroon-light);
+  transform: translateY(-1px);
+}
+
+.btn--teal {
+  background-color: var(--accent-teal);
+  color: var(--text-on-dark);
+  box-shadow: 0 4px 12px rgba(43, 122, 120, 0.22);
+}
+
+.btn--teal:hover {
+  background-color: var(--accent-teal-dark);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background-color: var(--bg-card);
+  color: var(--brand-maroon);
+  border: 1.5px solid var(--brand-maroon);
+}
+
+.btn--outline:hover {
+  background-color: var(--brand-maroon-tint);
+}
+
+.btn--subtle {
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-warm);
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+}
+
+.btn--subtle:hover {
+  background-color: var(--bg-section-alt);
+  color: var(--text-primary);
+}
+
+.intro-schedule-box {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.intro-schedule-box__heading {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.schedule-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.schedule-mini-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-subtle);
+  border-left: 3.5px solid var(--brand-maroon);
+}
+
+.schedule-mini-item--evening {
+  border-left-color: var(--accent-teal);
+}
+
+.schedule-mini-item__loc {
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: var(--text-primary);
+}
+
+.schedule-mini-item__time {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.schedule-mini-item__badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  background-color: var(--brand-maroon-tint);
+  color: var(--brand-maroon);
+}
+
+.schedule-mini-item--evening .schedule-mini-item__badge {
+  background-color: var(--accent-teal-soft);
+  color: var(--accent-teal-dark);
+}
+
+/* ==========================================================================
+   Section Headings & Shared Layout
+   ========================================================================== */
+.section {
+  padding: 2.35rem 0;
+}
+
+.section--alt {
+  background-color: var(--bg-section-alt);
+  border-top: 1px solid var(--border-warm);
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-header--center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal-dark);
+  margin-bottom: 0.35rem;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--brand-maroon);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin-top: 0.35rem;
+}
+
+.location-filter-group {
+  display: inline-flex;
+  background-color: var(--bg-card);
+  padding: 0.28rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-warm);
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.filter-tab {
+  background: transparent;
+  border: none;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab:hover {
+  color: var(--brand-maroon);
+}
+
+.filter-tab.is-active {
+  background-color: var(--brand-maroon);
+  color: var(--text-on-dark);
+  box-shadow: 0 2px 6px rgba(78, 29, 26, 0.2);
+}
+
+/* ==========================================================================
+   4. Our Clinic Locations Section (Interactive Google Map Preview + Clear Get Directions)
+   ========================================================================== */
+.locations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.85rem;
+}
+
+.location-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-warm);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.location-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.location-card.is-hidden {
+  display: none;
+}
+
+/* Left Column: Realistic Embedded-Style Interactive Map Widget */
+.location-card__map-col {
+  position: relative;
+  min-height: 315px;
+  background-color: #e8ecef;
+  border-right: 1px solid var(--border-warm);
+  overflow: hidden;
+}
+
+.google-map-widget {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 315px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.google-map-widget__canvas-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 315px;
+  position: relative;
+  overflow: hidden;
+}
+
+.google-map-widget__svg {
+  width: 100%;
+  height: 100%;
+  min-height: 315px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+/* Authentic Google Maps Embed Top-Left Place Card */
+.gmap-place-card {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 4;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: calc(100% - 24px);
+  width: 290px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.gmap-place-card__info {
+  min-width: 0;
+}
+
+.gmap-place-card__name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #202124;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gmap-place-card__addr {
+  font-size: 0.73rem;
+  color: #5f6368;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+}
+
+.gmap-place-card__view-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--google-blue);
+}
+
+.gmap-place-card__view-link:hover {
+  text-decoration: underline;
+}
+
+.gmap-place-card__dir-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  color: var(--google-blue);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding-left: 0.65rem;
+  border-left: 1px solid #e8eaed;
+  flex-shrink: 0;
+}
+
+.gmap-place-card__dir-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--google-blue);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(26, 115, 232, 0.35);
+}
+
+.gmap-place-card__dir-btn:hover .gmap-place-card__dir-icon {
+  background-color: var(--google-blue-dark);
+}
+
+/* Zoom Controls (+ / -) on Bottom Right of Map */
+.gmap-zoom-controls {
+  position: absolute;
+  bottom: 48px;
+  right: 12px;
+  z-index: 4;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gmap-zoom-btn {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border: none;
+  color: #5f6368;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.gmap-zoom-btn:first-child {
+  border-bottom: 1px solid #e8eaed;
+}
+
+.gmap-zoom-btn:hover {
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+/* Bottom Bar inside Map Preview */
+.gmap-bottom-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.gmap-open-pill {
+  pointer-events: auto;
+  background-color: rgba(32, 33, 36, 0.88);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.42rem 0.85rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.gmap-open-pill:hover {
+  background-color: var(--brand-maroon);
+}
+
+/* Right Column: Clinic Details */
+.location-card__details-col {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.location-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-warm);
+  padding-bottom: 1rem;
+}
+
+.location-card__branch-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.location-card__title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--brand-maroon);
+}
+
+.timing-session-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.timing-session-badge--morning {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.timing-session-badge--evening {
+  background-color: var(--accent-teal-soft);
+  color: var(--accent-teal-dark);
+  border: 1px solid #cce7e7;
+}
+
+.location-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.location-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.location-info-row__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-warm);
+  color: var(--brand-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.location-info-row__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.15rem;
+}
+
+.location-info-row__value {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.location-info-row__value--highlight {
+  font-weight: 700;
+  color: var(--brand-maroon);
+  font-size: 1.02rem;
+}
+
+.location-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.btn--directions {
+  padding: 0.78rem 1.45rem;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* ==========================================================================
+   5. Meet Our Doctors Section
+   ========================================================================== */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.doctor-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-warm);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.doctor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.doctor-card__top {
+  background: linear-gradient(135deg, var(--brand-maroon-tint) 0%, var(--accent-teal-soft) 100%);
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.doctor-photo-frame {
+  width: 128px;
+  height: 128px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(56, 19, 17, 0.14);
+  flex-shrink: 0;
+  background-color: #e8f1f5;
+}
+
+.doctor-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.doctor-card__identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctor-card__role-tag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-teal-dark);
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.45rem;
+  border: 1px solid rgba(43, 122, 120, 0.2);
+}
+
+.doctor-card__name {
+  font-size: 1.32rem;
+  font-weight: 800;
+  color: var(--brand-maroon);
+  line-height: 1.25;
+}
+
+.doctor-card__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  flex: 1;
+}
+
+.credential-block {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+}
+
+.credential-block--accent {
+  background-color: var(--accent-sage-soft);
+  border-color: #cbe3d4;
+}
+
+.credential-block__title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand-maroon);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.credential-block--accent .credential-block__title {
+  color: var(--accent-sage);
+}
+
+.credential-block__text {
+  font-size: 0.94rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  margin-top: 0.65rem;
+}
+
+.tag-badge {
+  background-color: #ffffff;
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+.specialization-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.65rem;
+  list-style: none;
+}
+
+.specialization-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-warm);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.93rem;
+  color: var(--text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.specialization-item__dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--accent-teal-soft);
+  color: var(--accent-teal-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   6. Appointment Contact Reminder Section
+   ========================================================================== */
+.appointment-section {
+  padding: 2.5rem 0 3rem;
+}
+
+.appointment-banner {
+  background: linear-gradient(135deg, var(--brand-maroon-dark) 0%, var(--brand-maroon) 60%, #5c2522 100%);
+  color: var(--text-on-dark);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.appointment-banner__content {
+  max-width: 640px;
+}
+
+.appointment-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 209, 102, 0.18);
+  color: #ffd166;
+  border: 1px solid rgba(255, 209, 102, 0.4);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+}
+
+.appointment-banner__exact-msg {
+  font-size: clamp(1.35rem, 2.8vw, 1.95rem);
+  font-weight: 800;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+
+.appointment-banner__phone-link {
+  color: #ffd166;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+
+.appointment-banner__phone-link:hover {
+  color: #ffffff;
+}
+
+.appointment-banner__note {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+}
+
+.appointment-banner__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  min-width: 250px;
+}
+
+.btn--gold {
+  background-color: #ffd166;
+  color: #2b110f;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.85rem 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+.btn--gold:hover {
+  background-color: #ffde8a;
+  transform: translateY(-2px);
+}
+
+.btn--ghost-light {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.88rem;
+  padding: 0.6rem 1.15rem;
+}
+
+.btn--ghost-light:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ==========================================================================
+   7. Simple Footer
+   ========================================================================== */
+.site-footer {
+  background-color: #221312;
+  color: rgba(255, 255, 255, 0.86);
+  padding: 2rem 0;
+  border-top: 4px solid var(--brand-maroon);
+  font-size: 0.9rem;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.site-footer__brand {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.site-footer__reg {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.site-footer__contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-footer__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #ffd166;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-footer__phone:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   Toast Feedback
+   ========================================================================== */
+.toast-notification {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background-color: var(--text-primary);
+  color: #ffffff;
+  padding: 0.75rem 1.15rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.toast-notification.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   8. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 960px) {
+  .intro-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .location-card {
+    grid-template-columns: 1fr;
+  }
+
+  .location-card__map-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-warm);
+    min-height: 280px;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-strip__inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-strip__meta {
+    display: none;
+  }
+
+  .clinic-header-board {
+    padding: 1rem 1rem 1.15rem;
+    text-align: center;
+  }
+
+  .clinic-header-board__gst-row {
+    text-align: center;
+    margin-bottom: 0.65rem;
+  }
+
+  .clinic-header-board__main {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .acharya-logo-emblem {
+    width: 140px;
+    height: 140px;
+  }
+
+  .acharya-logo-emblem__photo-wrap {
+    top: 22px;
+    left: 22px;
+    width: 96px;
+    height: 96px;
+  }
+
+  .clinic-header-board__meta-bar {
+    justify-content: center;
+    gap: 0.45rem 1.25rem;
+  }
+
+  .clinic-header-board__title {
+    font-size: clamp(1.45rem, 6vw, 2.1rem);
+  }
+
+  .location-card__details-col {
+    padding: 1.35rem 1.25rem;
+  }
+
+  .doctor-card__top {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.35rem 1.15rem;
+  }
+
+  .doctor-photo-frame {
+    width: 136px;
+    height: 136px;
+  }
+
+  .doctor-card__body {
+    padding: 1.25rem 1.15rem;
+  }
+
+  .appointment-banner {
+    padding: 1.6rem 1.35rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .appointment-banner__actions {
+    width: 100%;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .site-footer__contact {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .intro-card__actions,
+  .location-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
